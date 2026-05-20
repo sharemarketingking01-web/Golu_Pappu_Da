@@ -1,353 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Claim Your Favourite Product — ₹1 Offer</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg: #FAFAF8;
-    --dark: #111111;
-    --accent: #E8300B;
-    --accent2: #FF5733;
-    --muted: #888;
-    --border: rgba(0,0,0,0.08);
-    --card: #FFFFFF;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  body {
-    background: var(--bg);
-    color: var(--dark);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 1.25rem;
-  }
+  <!-- ============================================================
+    ✏️  CUSTOMIZATION SECTION — CHANGE ONLY THESE VALUES
+    ============================================================
+    CLIENT_NAME        → Full name shown on page
+    CLIENT_TAGLINE     → Short line below the name
+    CLIENT_TOPICS      → E.g. #Nifty #BankNifty #Stocks
+    CLIENT_BULLETS     → What they will learn (3 lines)
+    TELEGRAM_LINK      → The t.me invite link
+    TC_LINK            → Terms & Conditions page URL
+    PP_LINK            → Privacy Policy page URL
+    PIXEL_ID           → Meta Pixel ID
+    AGENCY_NAME        → Your ad agency name
+    AGENCY_LINK        → Your agency Telegram link
+    AGENCY_HANDLE      → Your agency Telegram handle
+    ============================================================ -->
 
-  .wrap {
-    max-width: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-    animation: up 0.8s ease both;
-  }
+  <title>PANKAJ BHARDWAJ WAY2LABH</title>
 
-  @keyframes up {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  <!-- ✏️ Replace PIXEL_ID with actual Meta Pixel ID -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1000549692656056');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
 
-  /* Top pill */
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: #FFF0EE;
-    border: 0.5px solid rgba(232,48,11,0.25);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    width: fit-content;
-  }
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .dot {
-    width: 7px; height: 7px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: blink 1.6s ease infinite;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #000428, #004e92);
+      color: white;
+      text-align: center;
+      padding: 40px 15px 20px;
+      min-height: 100vh;
+    }
 
-  @keyframes blink {
-    0%,100% { opacity: 1; }
-    50%      { opacity: 0.3; }
-  }
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease;
+    }
 
-  /* Big price */
-  .price-block {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+    /* ── Profile ring ── */
+    .image-wrapper {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ffd700, #ff6a00, #ffd700);
+      background-size: 200% 200%;
+      animation: gradientMove 3s ease infinite, glowPulse 2s infinite;
+      margin-bottom: 20px;
+    }
 
-  .label-small {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--muted);
-    letter-spacing: 0.03em;
-  }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
 
-  .price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
+    /* ── Typography ── */
+    h1 {
+      font-size: 28px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
 
-  .rupee-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 100px;
-    line-height: 1;
-    color: var(--accent);
-    letter-spacing: -2px;
-  }
+    h2 {
+      font-size: 17px;
+      font-weight: normal;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
 
-  .only-text {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.4;
-  }
+    .highlight {
+      color: #ffd700;
+      font-weight: bold;
+    }
 
-  .headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(38px, 10vw, 52px);
-    line-height: 1;
-    letter-spacing: 0.01em;
-    color: var(--dark);
-  }
+    /* ── Description ── */
+    .desc {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+      opacity: 0.95;
+    }
 
-  /* Divider */
-  .divider {
-    height: 0.5px;
-    background: var(--border);
-  }
+    /* ── Educational disclaimer (IMPORTANT for Meta) ── */
+    .edu-disclaimer {
+      font-size: 12px;
+      color: #a8c8ff;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168,200,255,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 14px 0 20px;
+      line-height: 1.5;
+    }
 
-  /* Steps */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+    /* ── CTA Button ── */
+    .btn {
+      background: #1877f2;
+      color: white;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-top: 8px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 rgba(24,119,242,0.6);
+      transition: transform 0.1s ease;
+    }
 
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+    .btn:active { transform: scale(0.97); }
 
-  .step-num {
-    width: 30px; height: 30px;
-    min-width: 30px;
-    background: var(--dark);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 500;
-  }
+    /* ── Legal line below button ── */
+    .legal-line {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 10px;
+      line-height: 1.6;
+    }
 
-  .step-text {
-    font-size: 14px;
-    color: #333;
-    font-weight: 400;
-  }
+    .legal-line a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: underline;
+    }
 
-  .step-text strong {
-    font-weight: 500;
-    color: var(--dark);
-  }
+    .legal-line a:hover { color: white; }
 
-  /* Timer strip */
-  .timer-strip {
-    background: #111;
-    color: #fff;
-    border-radius: 12px;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
+    /* ── Trust badges ── */
+    .trust {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-top: 28px;
+      line-height: 2;
+    }
 
-  .timer-label {
-    font-size: 11px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+    /* ── Agency footer ── */
+    .agency {
+      margin-top: 28px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
 
-  .timer-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: var(--accent2);
-  }
+    .agency a {
+      color: #ffd700;
+      text-decoration: none;
+    }
 
-  /* CTA */
-  .cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 18px 28px;
-    border-radius: 14px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    width: 100%;
-  }
+    .agency a:hover { text-decoration: underline; }
 
-  .cta:hover  { background: var(--accent2); transform: translateY(-2px); }
-  .cta:active { transform: scale(0.98); }
+    /* ── Page footer ── */
+    .page-footer {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
 
-  .cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .page-footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 0 6px;
+    }
 
-  /* Trust */
-  .trust {
-    text-align: center;
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
+    .page-footer a:hover { color: white; }
 
-  .trust-row {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-  }
+    /* ── Animations ── */
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(24,119,242,0.7); }
+      70%  { box-shadow: 0 0 0 18px rgba(24,119,242,0); }
+      100% { box-shadow: 0 0 0 0 rgba(24,119,242,0); }
+    }
 
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    color: var(--muted);
-  }
+    @keyframes glowPulse {
+      0%   { box-shadow: 0 0 10px #ffd700; }
+      50%  { box-shadow: 0 0 25px #ff6a00; }
+      100% { box-shadow: 0 0 10px #ffd700; }
+    }
 
-  /* Disclaimer + footer */
-  .disclaimer {
-    font-size: 10px;
-    color: #bbb;
-    line-height: 1.7;
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 0.5px solid var(--border);
-  }
+    @keyframes gradientMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-  }
-
-  .footer-links a {
-    font-size: 10px;
-    color: #bbb;
-    text-decoration: none;
-  }
-
-  .footer-links a:hover { color: #888; }
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
 
-<div class="wrap">
-
-  <!-- Pill -->
-  <div class="pill"><div class="dot"></div> Limited Time Offer</div>
-
-  <!-- Big price headline -->
-  <div class="price-block">
-    <p class="label-small">Claim your favourite product for just</p>
-    <div class="price-row">
-      <div class="rupee-big">₹1</div>
-      <div class="only-text">Only<br/>one rupee</div>
+    <!-- ✏️ Replace profile.jpg with client's actual image -->
+    <div class="image-wrapper">
+      <img src="pankaj.webp" alt="Profile" class="profile-img">
     </div>
-    <h1 class="headline">Your Choice.<br/>Our Price.</h1>
+    
+    <!-- ✏️ CLIENT_NAME -->
+    <h1>PANKAJ BHARDWAJ WAY2LABH</h1>
+
+    <!-- ✏️ CLIENT_TOPICS -->
+    <h2>
+      Learn Stock Market Basics <br>
+      <span class="highlight">#Nifty #BankNifty #Stocks</span>
+    </h2>
+
+    <!-- ✏️ CLIENT_BULLETS (what they learn) -->
+    <p class="desc">
+      📊 Technical Analysis Basics<br>
+      📈 How to Read Charts & Trends<br>
+      🧠 Build Your Market Analytical Skills
+    </p>
+
+    <!-- ✏️ TELEGRAM_LINK -->
+    <a href="https://t.me/+WEoM10uDtSQ0Mjc9"
+       target="_blank"
+       rel="noopener"
+       class="btn"
+       onclick="fbq('track','Lead')">
+      👉 Join Free on Telegram
+    </a>
+
   </div>
-
-  <div class="divider"></div>
-
-  <!-- How it works -->
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text"><strong>Join</strong> our Telegram channel</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text"><strong>Choose</strong> your favourite product</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-text"><strong>Claim</strong> it for just ₹1</div>
-    </div>
-  </div>
-
-  <!-- Countdown -->
-  <div class="timer-strip">
-    <div>
-      <div class="timer-label">Offer ends in</div>
-    </div>
-    <div class="timer-val" id="timer">00:00:00</div>
-  </div>
-
-  <!-- CTA -->
-  <a class="cta" href="https://t.me/YOURCHANNEL" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.782-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-    </svg>
-    Claim Now on Telegram — Free
-  </a>
-
-  <!-- Trust signals -->
-  <div class="trust-row">
-    <div class="trust-item">✓ No hidden charges</div>
-    <div class="trust-item">✓ 100% free to join</div>
-    <div class="trust-item">✓ Exit anytime</div>
-  </div>
-
-  <!-- Disclaimer -->
-  <div class="disclaimer">
-    This is a limited-period promotional offer. Offer valid while stocks last and subject to terms and conditions.
-    By joining, you agree to our Terms of Use and Privacy Policy. We do not share your data with third parties.
-  </div>
-
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms & Conditions</a>
-    <a href="#">Contact Us</a>
-  </div>
-
-</div>
-
-<script>
-  // 24-hour countdown
-  var end = new Date();
-  end.setHours(end.getHours() + 24);
-  if (!localStorage.getItem('offerEnd')) localStorage.setItem('offerEnd', end.getTime());
-  var target = parseInt(localStorage.getItem('offerEnd'));
-
-  function tick() {
-    var now  = Date.now();
-    var diff = Math.max(target - now, 0);
-    var h = String(Math.floor(diff / 3600000)).padStart(2,'0');
-    var m = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-    var s = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
-    document.getElementById('timer').textContent = h + ':' + m + ':' + s;
-    if (diff > 0) setTimeout(tick, 1000);
-    else document.getElementById('timer').textContent = 'EXPIRED';
-  }
-  tick();
-</script>
-
 </body>
 </html>
