@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claim Your Favourite Product — ₹1 Offer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #FAFAF8;
+    --dark: #111111;
+    --accent: #E8300B;
+    --accent2: #FF5733;
+    --muted: #888;
+    --border: rgba(0,0,0,0.08);
+    --card: #FFFFFF;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .wrap {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    animation: up 0.8s ease both;
+  }
+
+  @keyframes up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Top pill */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #FFF0EE;
+    border: 0.5px solid rgba(232,48,11,0.25);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    width: fit-content;
+  }
+
+  .dot {
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 1.6s ease infinite;
+  }
+
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.3; }
+  }
+
+  /* Big price */
+  .price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .label-small {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .rupee-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -2px;
+  }
+
+  .only-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 10vw, 52px);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--dark);
+  }
+
+  /* Divider */
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .step-num {
+    width: 30px; height: 30px;
+    min-width: 30px;
+    background: var(--dark);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .step-text {
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+  }
+
+  .step-text strong {
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  /* Timer strip */
+  .timer-strip {
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .timer-label {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .timer-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent2);
+  }
+
+  /* CTA */
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+  }
+
+  .cta:hover  { background: var(--accent2); transform: translateY(-2px); }
+  .cta:active { transform: scale(0.98); }
+
+  .cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  /* Trust */
+  .trust {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Disclaimer + footer */
+  .disclaimer {
+    font-size: 10px;
+    color: #bbb;
+    line-height: 1.7;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .footer-links a {
+    font-size: 10px;
+    color: #bbb;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover { color: #888; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Pill -->
+  <div class="pill"><div class="dot"></div> Limited Time Offer</div>
+
+  <!-- Big price headline -->
+  <div class="price-block">
+    <p class="label-small">Claim your favourite product for just</p>
+    <div class="price-row">
+      <div class="rupee-big">₹1</div>
+      <div class="only-text">Only<br/>one rupee</div>
+    </div>
+    <h1 class="headline">Your Choice.<br/>Our Price.</h1>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- How it works -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Join</strong> our Telegram channel</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Choose</strong> your favourite product</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Claim</strong> it for just ₹1</div>
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="timer-strip">
+    <div>
+      <div class="timer-label">Offer ends in</div>
+    </div>
+    <div class="timer-val" id="timer">00:00:00</div>
+  </div>
+
+  <!-- CTA -->
+  <a class="cta" href="https://t.me/YOURCHANNEL" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.782-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+    Claim Now on Telegram — Free
+  </a>
+
+  <!-- Trust signals -->
+  <div class="trust-row">
+    <div class="trust-item">✓ No hidden charges</div>
+    <div class="trust-item">✓ 100% free to join</div>
+    <div class="trust-item">✓ Exit anytime</div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    This is a limited-period promotional offer. Offer valid while stocks last and subject to terms and conditions.
+    By joining, you agree to our Terms of Use and Privacy Policy. We do not share your data with third parties.
+  </div>
+
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+</div>
+
+<script>
+  // 24-hour countdown
+  var end = new Date();
+  end.setHours(end.getHours() + 24);
+  if (!localStorage.getItem('offerEnd')) localStorage.setItem('offerEnd', end.getTime());
+  var target = parseInt(localStorage.getItem('offerEnd'));
+
+  function tick() {
+    var now  = Date.now();
+    var diff = Math.max(target - now, 0);
+    var h = String(Math.floor(diff / 3600000)).padStart(2,'0');
+    var m = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    var s = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+    document.getElementById('timer').textContent = h + ':' + m + ':' + s;
+    if (diff > 0) setTimeout(tick, 1000);
+    else document.getElementById('timer').textContent = 'EXPIRED';
+  }
+  tick();
+</script>
+
+</body>
+</html>
